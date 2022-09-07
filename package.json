@@ -1,0 +1,29 @@
+{
+  "name": "@2030/commitlint-config",
+  "version": "0.0.0",
+  "description": "ZiJun's commitlint config for work projects",
+  "keywords": [
+    "commitlint-config"
+  ],
+  "homepage": "https://github.com/Jun2030/commitlint-config",
+  "license": "MIT",
+  "author": "Zi Jun <zijun2030@163.com>",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "release": "bumpp package.json --commit --push --tag && pnpm -r publish --access public"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0"
+  },
+  "devDependencies": {
+    "bumpp": "^8.2.1"
+  },
+  "engines": {
+    "node": ">=14",
+    "pnpm": ">=7"
+  }
+}
