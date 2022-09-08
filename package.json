@@ -10,7 +10,8 @@
   "author": "Zi Jun <zijun2030@163.com>",
   "main": "index.js",
   "files": [
-    "index.js"
+    "index.js",
+    ".commitlintrc.js"
   ],
   "scripts": {
     "release": "bumpp package.json --commit --push --tag && pnpm -r publish --access public"
