@@ -1,6 +1,6 @@
 {
   "name": "@2030/commitlint-config",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ZiJun's commitlint config for work projects",
   "keywords": [
     "commitlint-config"
