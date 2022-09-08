@@ -26,15 +26,15 @@
 ### 1. 安装
 - `npm` 安装:
   ```bash
-  > npm i -D @2030/commitlint-config
+  > npm i -D @commitlint/cli @2030/commitlint-config
   ```
 - `yarn` 安装:
   ```bash
-  > yarn add -D @2030/commitlint-config
+  > yarn add -D @commitlint/cli @2030/commitlint-config
   ```
 - `pnpm` 安装:
   ```bash
-  > pnpm add -D @2030/commitlint-config
+  > pnpm add -D @commitlint/cli @2030/commitlint-config
   ```
 
 ### 2. 项目根目录配置
@@ -56,16 +56,24 @@
   ```
   
 
-### 3.? 添加 `husky` hook - `commit-msg`
+### 3. 添加 `husky` hook - `commit-msg`
 
-`.husky/commit-msg` 代码示例:
+Husky V8 代码示例:
 
 ```bash
-#!/bin/sh
-. "\$(dirname "\$0")/_/husky.sh"
-
-npx --no -- commitlint --edit ${1}
+# husky初始化
+pnpm dlx husky-init
+# 安装依赖,默认添加 pre-commit 钩子，可选择注释内容
+pnpm install
 ```
+- 非window端添加 `commit-msg` 钩子
+  ```bash
+  npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1"'
+  ```
+- window端添加 `commit-msg` 钩子
+  ```bash
+  node node_modules/husky/lib/bin add .husky/commit-msg 'npx --no -- commitlint --edit "$1"'
+  ```
 
 ## :key:License
 

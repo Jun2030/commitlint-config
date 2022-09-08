@@ -10,21 +10,21 @@
   "author": "Zi Jun <zijun2030@163.com>",
   "main": "index.js",
   "files": [
-    "index.js",
-    ".commitlintrc.js"
+    "index.js"
   ],
   "scripts": {
-    "release": "bumpp package.json --commit --push --tag && pnpm -r publish --access public"
+    "release": "bumpp package.json --commit --push --tag && pnpm publish"
   },
   "dependencies": {
-    "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0"
   },
   "devDependencies": {
     "bumpp": "^8.2.1"
   },
-  "engines": {
-    "node": ">=14",
-    "pnpm": ">=7"
+  "peerDependencies": {
+    "@commitlint/cli": ">= 17.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
