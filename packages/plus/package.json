@@ -1,5 +1,5 @@
 {
-  "name": "@2030/commitlint-config",
+  "name": "@2030/commitlint-config-plus",
   "version": "0.0.3",
   "description": "ZiJun's commitlint config for work projects",
   "keywords": [
@@ -13,14 +13,8 @@
   "files": [
     "index.js"
   ],
-  "scripts": {
-    "release": "bumpp package.json packages/*/package.json --commit --push --tag && pnpm -r publish"
-  },
   "dependencies": {
-    "@commitlint/config-conventional": "^17.1.0"
-  },
-  "devDependencies": {
-    "bumpp": "^8.2.1"
+    "@2030/commitlint-config": "workspace:*"
   },
   "peerDependencies": {
     "@commitlint/cli": ">= 17.0.0"

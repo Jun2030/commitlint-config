@@ -1,22 +1,27 @@
+"use strict"
+
+// type(scope?): subject
+// body?
+// footer?
 module.exports = {
   ignores: [commit => commit.includes('init')],
   extends: ['@commitlint/config-conventional'],
   rules: {
     // 标题最大长度 72 个字符
     'header-max-length': [2, 'always', 72],
-    // 内容以空行开始
+    // <body> 内容以空行开始
     'body-leading-blank': [2, 'always'],
-    // 结尾以空行开始
+    // <footer> 结尾以空行开始
     'footer-leading-blank': [2, 'always'],
-    // Scope 永远小写
+    // <scope> 永远小写
     'scope-case': [2, 'always', 'lower-case'],
-    // 不允许标题空着
+    // <subject>不允许标题空着
     'subject-empty': [2, 'never'],
-    // 不允许使用句号
+    // <subject>不允许使用句号
     'subject-full-stop': [2, 'never'],
-    // type 必须小写
+    // <type> 必须小写
     'type-case': [2, 'always', 'lower-case'],
-    // type 不能为空
+    // <type> 不能为空
     'type-empty': [2, 'never'],
     // type 可选项
     'type-enum': [2, 'always',
