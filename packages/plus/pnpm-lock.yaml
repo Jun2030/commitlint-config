@@ -1,0 +1,7 @@
+lockfileVersion: 5.4
+
+specifiers:
+  '@2030/commitlint-config': workspace:*
+
+dependencies:
+  '@2030/commitlint-config': link:../..
