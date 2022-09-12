@@ -1,0 +1,24 @@
+name: npm-publish-beta
+
+on:
+  push:
+    branches: ['main']
+    tags: ['v[0-9].[0-9]+.[0-9]+-beta.[0-9]+']
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - name: 📑生成日志
+        run: npx changelogithub
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: 🎁包发布
+        run: pnpm -r publish --tag beta
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
