@@ -1,14 +1,23 @@
 lockfileVersion: 5.4
 
-specifiers:
-  '@commitlint/config-conventional': ^17.1.0
-  bumpp: ^8.2.1
+importers:
 
-dependencies:
-  '@commitlint/config-conventional': 17.1.0
+  .:
+    specifiers:
+      '@2030/commitlint-config-plus': workspace:*
+      '@commitlint/config-conventional': ^17.1.0
+      bumpp: ^8.2.1
+    dependencies:
+      '@2030/commitlint-config-plus': link:packages/plus
+      '@commitlint/config-conventional': 17.1.0
+    devDependencies:
+      bumpp: 8.2.1
 
-devDependencies:
-  bumpp: 8.2.1
+  packages/plus:
+    specifiers:
+      '@2030/commitlint-config': workspace:*
+    dependencies:
+      '@2030/commitlint-config': link:../..
 
 packages:
 
