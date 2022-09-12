@@ -2,8 +2,9 @@ name: npm-publish-beta
 
 on:
   push:
-    tags: ['v*.*.*-beta.*']
-    branches: ['main']
+    tags:
+      - 'v*.*.*-beta.*'
+      - '!v*.*.*'
 
 jobs:
   publish-npm:

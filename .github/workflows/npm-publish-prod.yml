@@ -2,8 +2,9 @@ name: npm-publish-prod
 
 on:
   push:
-    tags: ['v*.*.*']
-    branches: ['main']
+    tags:
+      - 'v*.*.*'
+      - '!v*.*.*-beta.*'
 
 jobs:
   publish-npm:
