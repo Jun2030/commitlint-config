@@ -3,12 +3,15 @@ name: npm-publish-beta
 on:
   push:
     tags: ['v*.*.*-beta.*']
+    branches: ['main']
 
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - uses: pnpm/action-setup@v2
         with:
           version: 7
