@@ -1,5 +1,14 @@
 # :sparkles:@2030/commitlint-config
 
+![npm](https://img.shields.io/npm/v/@2030/commitlint-config)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Jun2030/commitlint-config/npm-publish-prod)
+![NPM](https://img.shields.io/npm/l/@2030/commitlint-config)
+![GitHub top language](https://img.shields.io/github/languages/top/Jun2030/commitlint-config)
+![npm bundle size](https://img.shields.io/bundlephobia/min/@2030/commitlint-config)
+![npm](https://img.shields.io/npm/dt/@2030/commitlint-config)
+
+> 代码提交规则标准规范
+
 ## :fire:风格说明 
 
 - 标题不能为空且不得超过72个字符
