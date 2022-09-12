@@ -3,8 +3,8 @@ name: npm-publish-beta
 on:
   push:
     tags:
-      - 'v*.*.*-beta.*'
       - '!v*.*.*'
+      - 'v*.*.*-beta.*'
 
 jobs:
   publish-npm:
