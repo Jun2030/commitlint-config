@@ -13,10 +13,6 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - name: 📑生成日志
-        run: npx changelogithub
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: 🎁包发布
         run: pnpm -r publish --tag beta
         env:
