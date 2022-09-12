@@ -19,6 +19,8 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+      - name: 🎻测试数据
+        run: echo ${{github.ref}}
       - name: 📑生成日志
         run: npx changelogithub
         env:
