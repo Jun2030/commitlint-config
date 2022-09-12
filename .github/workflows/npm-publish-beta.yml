@@ -16,6 +16,8 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
+      - name: 🔨安装依赖
+        run: pnpm i
       - name: 🎁包发布
         run: pnpm -r publish --tag beta --no-git-checks
         env:
