@@ -4,6 +4,7 @@
 
 - 标题不能为空且不得超过72个字符
 - 规范标准提交类型
+- 可选Scope强制规则
 - 默认提交类型
   - 'feat'     // 新增功能/特性
   - 'fix'      // 修复BUG/问题
@@ -38,10 +39,15 @@
   ```
 
 ### 2. 项目根目录配置
+
+> - `@2030` 基本规则
+> - `@2030/commitlint-config-plus` 强制scope规则
+> - 想要配置scope为必填，只需以下配置的中的 `@2030` 替换 `@2030/commitlint-config-plus` 即可
+
 - `.commitlintrc.json` 配置:
   ```json
   {
-    "extends": ["@2030"]
+    "extends": ["@2030"],
   }
   ```
 - `.commitlintrc.yml` 配置:
