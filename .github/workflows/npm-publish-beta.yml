@@ -17,6 +17,6 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - name: 🎁包发布
-        run: pnpm -r publish --tag beta
+        run: pnpm -r publish --tag beta --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
