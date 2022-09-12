@@ -5,13 +5,14 @@ on:
     tags: ['v*.*.*-beta.*']
 
 jobs:
-  add-pnpm:
+  install:
     runs-on: ubuntu-latest
     steps:
-      - name: 🔨安装依赖
-        run: npm install pnpm -g
+      - uses: pnpm/action-setup@2.2.2
+        with:
+          version: 7
   publish-npm:
-    needs: add-pnpm
+    needs: install
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
