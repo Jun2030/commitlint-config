@@ -1,8 +1,10 @@
 {
   "cSpell.words": [
     "bumpp",
+    "changelogithub",
     "commitlint",
-    "commitlintrc"
+    "commitlintrc",
+    "pnpm"
   ],
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#46c346",
