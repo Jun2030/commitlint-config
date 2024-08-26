@@ -1,24 +1,25 @@
-"use strict"
-
 // type(scope?): subject
 // body?
 // footer?
-module.exports = {
-  ignores: [commit => commit.includes('init')],
+export default {
   extends: ['@commitlint/config-conventional'],
   rules: {
-    // 标题最大长度 72 个字符
-    'header-max-length': [2, 'always', 72],
+    // 标题最大长度 108 个字符
+    'header-max-length': [2, 'always', 108],
     // <body> 内容以空行开始
     'body-leading-blank': [2, 'always'],
     // <footer> 结尾以空行开始
     'footer-leading-blank': [2, 'always'],
     // <scope> 永远小写
     'scope-case': [2, 'always', 'lower-case'],
+    // 主题检查
+    'subject-case': [2, 'never'],
     // <subject>不允许标题空着
     'subject-empty': [2, 'never'],
+    // <subject>不允许使用感叹号
+    'subject-exclamation-mark': [2, 'never'],
     // <subject>不允许使用句号
-    'subject-full-stop': [2, 'never'],
+    'subject-full-stop': [2, 'never', '.'],
     // <type> 必须小写
     'type-case': [2, 'always', 'lower-case'],
     // <type> 不能为空
@@ -26,24 +27,29 @@ module.exports = {
     // type 可选项
     'type-enum': [2, 'always',
       [
-        'feat',     // 新增功能/特性
-        'fix',      // 修复BUG/问题
-        'upd',      // 更新某功能
-        'docs',     // 变更文档/注释
-        'style',    // 调整代码格式(不影响功能,空格/分号等格式修正)
-        'types',    // 类型声明或修改
-        'refactor', // 重构代码(不包括修复BUG/新增功能)
-        'perf',     // 优化/性能提升
-        'test',     // 测试(用例)相关
-        'workflow', // 构建流程/工具变更(修改打包配置等)
-        'ci',       // 持续集成
-        'revert',   // 回滚提交
-        'merge',    // 合并分支
-        'chore',    // 依赖更新/脚手架配置修改
-        'wip',      // 开发中
-        'mod',      // 不确定分类的修改
-        'release',  // 发布新版本
+        'init',               // 初次提交
+        'work',               // 工作进行中
+        'feat',               // 添加新功能
+        'fix',                // 修复BUG/问题
+        'typos',              // 修改错别字
+        'style',              // 改进项目结构/代码格式
+        'docs',               // 添加/更新问答
+        'config',             // 添加/修改配置文件
+        'comments',           // 添加/更新注释
+        'rename',             // 移动/重命名文件/路径
+        'chore',              // 添加/删除代码/文件
+        'perf',               // 优化性能
+        'log',                // 添加/更新日志
+        'refactor',           // 重构代码
+        'test',               // 添加/修改测试用例
+        'build',              // 构建/部署流程
+        'release',            // 发布新版本
+        'i18n',               // 国际化
+        'revert',             // 回滚提交
+        'merge',              // 合并分支
+        'contributor',        // 添加贡献者
+        'types',              // 类型声明或修改
       ],
     ],
-  },
-};
+  }
+}
