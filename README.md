@@ -8,22 +8,21 @@
 
 > 代码提交规则标准规范
 
-## :fire:风格说明 
+## :fire:风格说明
 
 - 标题不能为空且不得超过108个字符
-- 可选Scope
+- Scope可选
 - 规范标准提交类型
-- 可配合名称seatonjiang.gitmoji-vscode使用
 - 默认提交类型
   ```javascript
   [
     'init',               // 初次提交
     'work',               // 工作进行中
     'feat',               // 添加新功能
-    'fix',                // 修复BUG/问题
+    'fix',                // 修复BUG
     'typos',              // 修改错别字
     'style',              // 改进项目结构/代码格式
-    'docs',               // 添加/更新问答
+    'docs',               // 添加/更新文档
     'config',             // 添加/修改配置文件
     'comments',           // 添加/更新注释
     'rename',             // 移动/重命名文件/路径
@@ -39,6 +38,7 @@
     'merge',              // 合并分支
     'contributor',        // 添加贡献者
     'types',              // 类型声明或修改
+    'ci',                 // 持续集成
   ]
   ```
 
@@ -83,10 +83,11 @@
 
 ### 3. 添加 `husky` hook - `commit-msg`
 
-Husky V8 代码示例:
+Husky V9 代码示例:
 
 ```bash
 # husky初始化
+pnpm add husky -D
 pnpm exec husky init
 ```
 - 添加 `commit-msg` 钩子

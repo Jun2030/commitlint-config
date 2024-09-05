@@ -9,7 +9,7 @@
   "homepage": "https://github.com/Jun2030/commitlint-config#readme",
   "repository": "https://github.com/Jun2030/commitlint-config",
   "license": "MIT",
-  "author": "Zi Jun <zijun2030@163.com>",
+  "author": "DaiJun<zijun2030@163.com>",
   "type": "module",
   "main": "index.js",
   "files": [
@@ -20,7 +20,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@commitlint/config-conventional": "^19.2.2"
+    "@commitlint/config-conventional": "^19.4.1"
   },
   "devDependencies": {
     "bumpp": "^9.5.2",

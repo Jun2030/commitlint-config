@@ -13,7 +13,7 @@
 - 标题不能为空且不得超过108个字符
 - 可选Scope
 - 规范标准提交类型
-- 可配合名称seatonjiang.gitmoji-vscode使用
+- 可配合插件 `seatonjiang.gitmoji-vscode` 使用
 - 默认提交类型
   ```javascript
   [
@@ -54,6 +54,7 @@
     '🔀 merge',          // 合并分支
     '👥 contributor',    // 添加/更新贡献者
     '🏷️ types',          // 类型声明或修改
+    '👷‍♂️ ci',             // 持续集成
   ]
   ```
 
@@ -90,13 +91,178 @@
     extends: ["@2030/commitlint-config-emoji"]
   }
   ```
+### 3. VScode配置
+- 安装插件:
+  ```bash
+  > // 安装插件
+  > code --install-extension seatonjiang.gitmoji-vscode
+  ```
+- 配置 `settings.json` 文件:
+  ```json
+  {
+    "gitmoji.addCustomEmoji": [
+      {
+        "description": "初次提交",
+        "emoji": "🎉 init:"
+      },
+      {
+        "description": "工作进行中",
+        "emoji": "🚧 work:"
+      },
+      {
+        "description": "添加/更新业务逻辑",
+        "emoji": "👔 work:"
+      },
+      {
+        "description": "添加新功能",
+        "emoji": "✨ feat:"
+      },
+      {
+        "description": "引入重大改变",
+        "emoji": "💥 feat:"
+      },
+      {
+        "description": "修复BUG",
+        "emoji": "🐛 fix:"
+      },
+      {
+        "description": "简单修复非关键性问题",
+        "emoji": "🩹 fix:"
+      },
+      {
+        "description": "紧急热修复",
+        "emoji": "🚑 fix:"
+      },
+      {
+        "description": "修复安全/隐私问题",
+        "emoji": "🔒️ fix:"
+      },
+      {
+        "description": "修复编译错误/警告",
+        "emoji": "🚨 fix:"
+      },
+      {
+        "description": "修复拼写错误/错别字",
+        "emoji": "✏️ typos:"
+      },
+      {
+        "description": "添加/更新UI样式文件",
+        "emoji": "💄 style:"
+      },
+      {
+        "description": "改进项目结构/代码格式",
+        "emoji": "🎨 style:"
+      },
+      {
+        "description": "添加/更新文档",
+        "emoji": "📝 docs:"
+      },
+      {
+        "description": "添加/修改配置文件",
+        "emoji": "🔧 config:"
+      },
+      {
+        "description": "添加/更新注释",
+        "emoji": "💡 comment:"
+      },
+      {
+        "description": "移动/重命名文件/路径",
+        "emoji": "🚚 rename:"
+      },
+      {
+        "description": "添加/删除代码/文件",
+        "emoji": "🔥 chore:"
+      },
+      {
+        "description": "固定依赖版本",
+        "emoji": "📌 chore:"
+      },
+      {
+        "description": "添加依赖",
+        "emoji": "➕ chore:"
+      },
+      {
+        "description": "删除依赖",
+        "emoji": "➖ chore:"
+      },
+      {
+        "description": "升级依赖",
+        "emoji": "⬆️ chore:"
+      },
+      {
+        "description": "降级依赖",
+        "emoji": "⬇️ chore:"
+      },
+      {
+        "description": "优化性能",
+        "emoji": "⚡️ perf:"
+      },
+      {
+        "description": "删除无用代码",
+        "emoji": "🗑️ perf:"
+      },
+      {
+        "description": "添加/更新日志",
+        "emoji": "🔊 log:"
+      },
+      {
+        "description": "删除日志",
+        "emoji": "🔇 log:"
+      },
+      {
+        "description": "重构代码",
+        "emoji": "♻️ refactor:"
+      },
+      {
+        "description": "添加/更新测试用例",
+        "emoji": "🧪 test:"
+      },
+      {
+        "description": "添加/更新验证相关代码",
+        "emoji": "🦺 test:"
+      },
+      {
+        "description": "构建/部署功能",
+        "emoji": "🚀 build:"
+      },
+      {
+        "description": "发行版本标签",
+        "emoji": "🔖 release:"
+      },
+      {
+        "description": "国际化",
+        "emoji": "🌐 i18n:"
+      },
+      {
+        "description": "回滚版本",
+        "emoji": "⏪ revert:"
+      },
+      {
+        "description": "合并分支",
+        "emoji": "🔀 merge:"
+      },
+      {
+        "description": "添加/更新贡献者",
+        "emoji": "👥 contributor:"
+      },
+      {
+        "description": "添加/更新类型声明文件",
+        "emoji": "🏷️ types:"
+      },
+      {
+        "description": "持续集成",
+        "emoji": "👷‍♂️ ci:"
+      }
+    ],
+  }
+  ```
+### 4. 添加 `husky` hook - `commit-msg`
 
-### 3. 添加 `husky` hook - `commit-msg`
-
-Husky V8 代码示例:
+Husky v9 代码示例:
 
 ```bash
 # husky初始化
+pnpm add husky -D
 pnpm exec husky init
 ```
 - 添加 `commit-msg` 钩子

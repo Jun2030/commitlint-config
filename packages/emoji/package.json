@@ -9,17 +9,19 @@
   "homepage": "https://github.com/Jun2030/commitlint-config#readme",
   "repository": "https://github.com/Jun2030/commitlint-config",
   "license": "MIT",
-  "author": "Zi Jun <zijun2030@163.com>",
+  "author": "DaiJun<zijun2030@163.com>",
   "type": "module",
   "main": "index.js",
   "files": [
     "index.js"
   ],
+
   "dependencies": {
+    "@2030/commitlint-config": "workspace:*",
     "commitlint-config-git-commit-emoji": "^1.0.0"
   },
   "peerDependencies": {
-    "@commitlint/cli": "19.4.0"
+    "@commitlint/cli": ">=19"
   },
   "publishConfig": {
     "access": "public"

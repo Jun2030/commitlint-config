@@ -60,6 +60,7 @@ export default {
         '🔀 merge',         // 合并分支
         '👥 contributor',   // 添加/更新贡献者
         '🏷️ types',         // 类型声明或修改
+        '👷‍♂️ ci',            // 持续集成
       ],
     ],
   },

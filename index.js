@@ -30,10 +30,10 @@ export default {
         'init',               // 初次提交
         'work',               // 工作进行中
         'feat',               // 添加新功能
-        'fix',                // 修复BUG/问题
+        'fix',                // 修复BUG
         'typos',              // 修改错别字
         'style',              // 改进项目结构/代码格式
-        'docs',               // 添加/更新问答
+        'docs',               // 添加/更新文档
         'config',             // 添加/修改配置文件
         'comments',           // 添加/更新注释
         'rename',             // 移动/重命名文件/路径
@@ -49,6 +49,7 @@ export default {
         'merge',              // 合并分支
         'contributor',        // 添加贡献者
         'types',              // 类型声明或修改
+        'ci',                 // 持续集成
       ],
     ],
   }
