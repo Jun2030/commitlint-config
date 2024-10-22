@@ -13,6 +13,7 @@
 - 标题不能为空且不得超过108个字符
 - Scope可选
 - 规范标准提交类型
+- 可配合插件 `seatonjiang.gitmoji-vscode` 使用
 - 默认提交类型
   ```javascript
   [
@@ -80,20 +81,150 @@
   }
   ```
 
-
-### 3. 添加 `husky` hook - `commit-msg`
-
-Husky V9 代码示例:
-
-```bash
-# husky初始化
-pnpm add husky -D
-pnpm exec husky init
-```
-- 添加 `commit-msg` 钩子
+### 3. VScode配置(推荐插件搭配使用)
+- 安装插件:
   ```bash
-  echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
+  # 安装插件
+  code --install-extension seatonjiang.gitmoji-vscode
   ```
+- 配置 `settings.json` 文件:
+  ```json
+  {
+    "gitmoji.addCustomEmoji": [
+      {
+        "description": "初次提交",
+        "emoji": "init:"
+      },
+      {
+        "description": "工作进行中",
+        "emoji": "work:"
+      },
+      {
+        "description": "添加新功能",
+        "emoji": "feat:"
+      },
+      {
+        "description": "修复BUG",
+        "emoji": "fix:"
+      },
+      {
+        "description": "修复拼写错误/错别字",
+        "emoji": "typos:"
+      },
+      {
+        "description": "改进项目结构/代码格式",
+        "emoji": "style:"
+      },
+      {
+        "description": "添加/更新文档",
+        "emoji": "docs:"
+      },
+      {
+        "description": "添加/修改配置文件",
+        "emoji": "config:"
+      },
+      {
+        "description": "添加/更新注释",
+        "emoji": "comment:"
+      },
+      {
+        "description": "移动/重命名文件/路径",
+        "emoji": "rename:"
+      },
+      {
+        "description": "添加/删除代码/文件",
+        "emoji": "chore:"
+      },
+      {
+        "description": "优化性能",
+        "emoji": "perf:"
+      },
+      {
+        "description": "添加/更新日志",
+        "emoji": "log:"
+      },
+      {
+        "description": "重构代码",
+        "emoji": "refactor:"
+      },
+      {
+        "description": "添加/更新测试用例",
+        "emoji": "test:"
+      },
+      {
+        "description": "构建/部署功能",
+        "emoji": "build:"
+      },
+      {
+        "description": "发行版本标签",
+        "emoji": "release:"
+      },
+      {
+        "description": "国际化",
+        "emoji": "i18n:"
+      },
+      {
+        "description": "回滚提交",
+        "emoji": "revert:"
+      },
+      {
+        "description": "合并分支",
+        "emoji": "merge:"
+      },
+      {
+        "description": "添加/更新贡献者",
+        "emoji": "contributor:"
+      },
+      {
+        "description": "添加/更新类型声明文件",
+        "emoji": "types:"
+      },
+      {
+        "description": "持续集成",
+        "emoji": "ci:"
+      }
+    ],
+    "gitmoji.onlyUseCustomEmoji": true
+  }
+  ```
+
+
+### 4. 添加校验钩子
+
+- **Husky(V9+ 支持)**
+
+  ```bash
+  # husky初始化
+  pnpm add husky -D
+  pnpm exec husky init
+  ```
+  - 添加 `commit-msg` 钩子
+    ```bash
+    echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
+    ```
+
+- **simple-git-hooks**
+  ```bash
+  # 添加simple-git-hooks依赖
+  pnpm add simple-git-hooks -D
+  ```
+  - 添加 `package.json`中`prepare` 脚本
+  ```json
+  {
+    "scripts": {
+      "prepare": "simple-git-hooks"
+    }
+  }
+  ```
+  - 添加 `package.json` 钩子
+  ```json
+  {
+    "simple-git-hooks": {
+      "commit-msg": "pnpm commitlint --edit $1",
+    }
+  }
+  ```
+
 
 ## :key:License
 

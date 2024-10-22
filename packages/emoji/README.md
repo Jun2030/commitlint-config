@@ -94,8 +94,8 @@
 ### 3. VScode配置
 - 安装插件:
   ```bash
-  > // 安装插件
-  > code --install-extension seatonjiang.gitmoji-vscode
+  # 安装插件
+  code --install-extension seatonjiang.gitmoji-vscode
   ```
 - 配置 `settings.json` 文件:
   ```json
@@ -254,20 +254,44 @@
         "emoji": "👷‍♂️ ci:"
       }
     ],
+    "gitmoji.onlyUseCustomEmoji": true
   }
   ```
-### 4. 添加 `husky` hook - `commit-msg`
 
-Husky v9 代码示例:
+### 4. 添加校验钩子
 
-```bash
-# husky初始化
-pnpm add husky -D
-pnpm exec husky init
-```
-- 添加 `commit-msg` 钩子
+- **Husky(V9+ 支持)**
+
+  ```bash
+  # husky初始化
+  pnpm add husky -D
+  pnpm exec husky init
+  ```
+  - 添加 `commit-msg` 钩子
   ```bash
   echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
+  ```
+
+- **simple-git-hooks**
+  ```bash
+  # 添加simple-git-hooks依赖
+  pnpm add simple-git-hooks -D
+  ```
+  - 添加 `package.json`中`prepare` 脚本
+  ```json
+  {
+    "scripts": {
+      "prepare": "simple-git-hooks"
+    }
+  }
+  ```
+  - 添加 `package.json` 钩子
+  ```json
+  {
+    "simple-git-hooks": {
+      "commit-msg": "pnpm commitlint --edit $1",
+    }
+  }
   ```
 
 ## :key:License
