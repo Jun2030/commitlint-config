@@ -15,18 +15,14 @@ jobs:
           fetch-depth: 0
       - uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: 10
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
           registry-url: https://registry.npmjs.org/
       - name: 🔨安装依赖
         run: pnpm i
-      - name: 📑生成日志
-        run: npx changelogithub
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: 🎁包发布
-        run: pnpm -r publish --no-git-checks
+        run: pnpm -r publish --no-git-checks --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

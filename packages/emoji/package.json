@@ -18,10 +18,10 @@
 
   "dependencies": {
     "@2030/commitlint-config": "workspace:*",
-    "commitlint-config-git-commit-emoji": "^1.0.0"
+    "commitlint-config-git-commit-emoji": "1.0.0"
   },
   "peerDependencies": {
-    "@commitlint/cli": ">=19"
+    "@commitlint/cli": ">=20"
   },
   "publishConfig": {
     "access": "public"

@@ -4,14 +4,14 @@
 export default {
   extends: ['@commitlint/config-conventional'],
   rules: {
-    // 标题最大长度 108 个字符
-    'header-max-length': [2, 'always', 108],
+    // 标题最大长度 200 个字符
+    'header-max-length': [2, 'always', 200],
     // <body> 内容以空行开始
     'body-leading-blank': [2, 'always'],
     // <footer> 结尾以空行开始
     'footer-leading-blank': [2, 'always'],
-    // <scope> 永远小写
-    'scope-case': [2, 'always', 'lower-case'],
+    // <scope> 放开大小写
+    'scope-case': [0],
     // 主题检查
     'subject-case': [2, 'never'],
     // <subject>不允许标题空着

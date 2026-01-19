@@ -1,0 +1,20 @@
+{
+  "version": "0.2",
+  "language": "en,zh-CN",
+  "words": [
+    "gitmoji"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    "dist",
+    "*.lock",
+    "*.log",
+    "pnpm-lock.yaml",
+    "package-lock.json",
+    ".ignore",
+    ".gitignore",
+    ".npmrc",
+    "DEVELOPMENT.md",
+    "pnpm-workspace.yaml"
+  ]
+}

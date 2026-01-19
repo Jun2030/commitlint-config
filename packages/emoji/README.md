@@ -10,7 +10,7 @@
 
 ## :fire:风格说明
 
-- 标题不能为空且不得超过108个字符
+- 标题不能为空且不得超过200个字符
 - 可选Scope
 - 规范标准提交类型
 - 可配合插件 `seatonjiang.gitmoji-vscode` 使用
@@ -296,4 +296,4 @@
 
 ## :key:License
 
-[MIT](/LICENSE) License &copy; 2022 ZiJun
+[MIT](/LICENSE) License &copy; 2026 ZiJun
