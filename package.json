@@ -16,6 +16,7 @@
     "index.js"
   ],
   "scripts": {
+    "test": "node --test",
     "release": "bumpp package.json packages/*/package.json --commit --push --tag",
     "prepare": "husky"
   },

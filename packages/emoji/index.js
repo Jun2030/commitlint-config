@@ -1,6 +1,24 @@
+const requirementIdRule = (parsed, when = 'always') => {
+  const hasRequirementId = /#\d+\b/.test(parsed.header ?? '');
+  const expected = when === 'always';
+
+  return [
+    hasRequirementId === expected,
+    '提交标题必须携带需求ID(e.g. #2345)',
+  ];
+};
+
 export default {
   extends: ['git-commit-emoji'],
+  plugins: [
+    {
+      rules: {
+        'header-requirement-id': requirementIdRule,
+      },
+    },
+  ],
   rules: {
+    'header-requirement-id': [2, 'always'],
     // 标题最大长度 200 个字符
     'header-max-length': [2, 'always', 200],
     // <body> 内容以空行开始
