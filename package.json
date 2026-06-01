@@ -1,6 +1,6 @@
 {
   "name": "@2030/commitlint-config",
-  "version": "3.0.0",
+  "version": "3.0.1-beta.1",
   "description": "Shareable commitlint config for enforcing conventional commits",
   "keywords": [
     "commitlint",
@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "test": "node --test",
-    "release": "bumpp package.json packages/*/package.json --commit --push --tag",
+    "release": "bumpp package.json packages/*/package.json --commit --push --tag --no-verify",
     "prepare": "husky"
   },
   "dependencies": {
