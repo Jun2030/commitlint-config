@@ -1,6 +1,6 @@
 {
   "name": "@2030/commitlint-config",
-  "version": "3.0.0",
+  "version": "3.0.1-beta.1",
   "description": "Shareable commitlint config for enforcing conventional commits",
   "keywords": [
     "commitlint",
