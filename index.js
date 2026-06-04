@@ -2,12 +2,12 @@
 // body?
 // footer?
 const requirementIdRule = (parsed, when = 'always') => {
-  const hasRequirementId = /#\d+\b/.test(parsed.header ?? '');
+  const requirementIds = parsed.header?.match(/#\d+\b/g) ?? [];
   const expected = when === 'always';
 
   return [
-    hasRequirementId === expected,
-    '提交标题必须携带需求ID(e.g. #01234)',
+    (requirementIds.length === 1) === expected,
+    '提交标题必须有且只能包含一个需求ID(e.g. #2345)',
   ];
 };
 

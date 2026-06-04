@@ -10,6 +10,7 @@ import { promisify } from 'node:util';
 const execFileAsync = promisify(execFile);
 const repoRoot = path.dirname(fileURLToPath(new URL('../package.json', import.meta.url)));
 const commitlintCli = path.join(repoRoot, 'node_modules', '@commitlint', 'cli', 'cli.js');
+const requirementIdMessage = /提交标题必须有且只能包含一个需求ID\(e\.g\. #2345\)/;
 
 async function runCommitlint(configModule, message) {
   const cwd = await mkdtemp(path.join(tmpdir(), 'commitlint-config-'));
@@ -37,13 +38,20 @@ test('root config requires a requirement id in the header', async () => {
   const result = await runCommitlint(path.join(repoRoot, 'index.js'), 'feat: add checkout flow');
 
   assert.equal(result.code, 1);
-  assert.match(result.stdout, /提交标题必须携带需求ID\(e\.g\. ##01234\)/);
+  assert.match(result.stdout, requirementIdMessage);
 });
 
 test('root config accepts a requirement id in the header', async () => {
   const result = await runCommitlint(path.join(repoRoot, 'index.js'), 'feat: add checkout flow #2345');
 
   assert.equal(result.code, 0);
+});
+
+test('root config rejects multiple requirement ids in the header', async () => {
+  const result = await runCommitlint(path.join(repoRoot, 'index.js'), 'feat: add checkout flow #2345 #6789');
+
+  assert.equal(result.code, 1);
+  assert.match(result.stdout, requirementIdMessage);
 });
 
 test('emoji config requires a requirement id in the header', async () => {
@@ -53,5 +61,15 @@ test('emoji config requires a requirement id in the header', async () => {
   );
 
   assert.equal(result.code, 1);
-  assert.match(result.stdout, /提交标题必须携带需求ID\(e\.g\. ##01234\)/);
+  assert.match(result.stdout, requirementIdMessage);
+});
+
+test('emoji config rejects multiple requirement ids in the header', async () => {
+  const result = await runCommitlint(
+    path.join(repoRoot, 'packages', 'emoji', 'index.js'),
+    '🐛 fix: patch payment retry #2345 #6789',
+  );
+
+  assert.equal(result.code, 1);
+  assert.match(result.stdout, requirementIdMessage);
 });
