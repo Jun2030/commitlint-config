@@ -99,6 +99,10 @@ export default {
 - `1`: 警告（不会阻止提交）
 - `2`: 错误（会阻止提交）
 
+#### 需求ID规则
+
+根配置要求提交标题有且只能包含一个需求ID。合法格式仅为 `#0000`，或 `#1000` 至 `#9999` 范围内的四位数字；其他格式会导致校验不通过。
+
 ### Emoji 配置 (packages/emoji/index.js)
 
 Emoji 配置扩展了基础配置，要求在提交类型前添加表情符号：
@@ -123,7 +127,7 @@ export default {
 ### 提交消息格式
 
 ```
-type(scope?): subject
+type(scope?): subject #需求ID
 
 body?
 
@@ -133,6 +137,7 @@ footer?
 - **type**: 提交类型（必填）
 - **scope**: 影响范围（可选，不限制大小写）
 - **subject**: 简短描述（必填，不超过200字符）
+- **需求ID**: 根配置必填且只能有一个，格式为 `#0000` 或 `#1000` 至 `#9999`
 - **body**: 详细描述（可选，前面需要空行）
 - **footer**: 备注信息（可选，前面需要空行）
 
@@ -168,10 +173,10 @@ footer?
 
 **基础配置示例**:
 ```bash
-feat: 添加用户登录功能
-feat(auth): 实现JWT认证
-fix(api): 修复接口返回数据格式错误
-docs: 更新开发文档
+feat: 添加用户登录功能 #0000
+feat(auth): 实现JWT认证 #1000
+fix(api): 修复接口返回数据格式错误 #2345
+docs: 更新开发文档 #9999
 ```
 
 **Emoji 配置示例**:
@@ -195,7 +200,7 @@ git checkout -b feature/your-feature-name
 
 ```bash
 git add .
-git commit -m "feat: 添加新功能"
+git commit -m "feat: 添加新功能 #0000"
 ```
 
 提交时会自动触发 commitlint 校验，不符合规范的提交会被拒绝。
@@ -206,7 +211,7 @@ git commit -m "feat: 添加新功能"
 
 ```bash
 # 测试基础配置
-echo "feat: test commit" | npx commitlint --config index.js
+echo "feat: test commit #0000" | npx commitlint --config index.js
 
 # 测试 emoji 配置
 echo "✨ feat: test commit" | npx commitlint --config packages/emoji/index.js
@@ -244,7 +249,7 @@ pnpm add -D @commitlint/cli file:/path/to/commitlint-config
 }
 
 # 测试提交
-git commit -m "test: 测试提交"
+git commit -m "test: 测试提交 #0000"
 ```
 
 ### 测试 Emoji 配置包
@@ -384,7 +389,7 @@ pnpm update @commitlint/config-conventional
 
 1. Fork 本项目
 2. 创建特性分支 (`git checkout -b feature/amazing-feature`)
-3. 提交改动 (`git commit -m 'feat: 添加某个很棒的特性'`)
+3. 提交改动 (`git commit -m 'feat: 添加某个很棒的特性 #0000'`)
 4. 推送到分支 (`git push origin feature/amazing-feature`)
 5. 创建 Pull Request
 

@@ -4,10 +4,12 @@
 const requirementIdRule = (parsed, when = 'always') => {
   const requirementIds = parsed.header?.match(/#\d+\b/g) ?? [];
   const expected = when === 'always';
+  const valid = requirementIds.length === 1
+    && /^#(?:0000|[1-9]\d{3})$/.test(requirementIds[0]);
 
   return [
-    (requirementIds.length === 1) === expected,
-    '提交标题必须有且只能包含一个需求ID(e.g. #2345)',
+    valid === expected,
+    '提交标题必须有且只能包含一个需求ID，格式为 #0000 或 #1000-#9999',
   ];
 };
 
